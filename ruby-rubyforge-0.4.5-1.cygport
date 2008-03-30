@@ -1,0 +1,15 @@
+ORIG_PN=${PN#ruby-}
+inherit ruby
+
+DESCRIPTION="Ruby module for RubyForge operations"
+HOMEPAGE="http://rubyforge.org/projects/codeforpeople"
+SRC_URI="mirror://rubyforge/codeforpeople/${ORIG_PN}-${PV}.gem"
+
+src_install() {
+	cd ${B}
+	dobin bin/*
+
+	dodir ${RUBY_SITELIB}
+	cp -rL lib/* ${D}${RUBY_SITELIB}
+}
+
