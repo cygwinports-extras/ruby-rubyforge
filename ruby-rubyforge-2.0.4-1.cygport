@@ -5,11 +5,22 @@ DESCRIPTION="Ruby module for RubyForge operations"
 HOMEPAGE="http://rubyforge.org/projects/codeforpeople"
 SRC_URI="mirror://rubyforge/codeforpeople/${ORIG_PN}-${PV}.gem"
 
-src_install() {
-	cd ${B}
-	dobin bin/*
+src_compile() {
+	cd ${S}
+	rdoc -U --ri --op ${B}/.rdoc lib/
+}
 
-	dodir ${RUBY_SITELIB}
-	cp -rL lib/* ${D}${RUBY_SITELIB}
+src_test() {
+	cd ${S}
+	rake
+}
+
+src_install() {
+	cd ${S}
+	dobin bin/*
+	doruby lib/*
+
+	dodir ${RI_SITEDIR}
+	cp -r ${B}/.rdoc/RubyForge ${D}${RI_SITEDIR}
 }
 
