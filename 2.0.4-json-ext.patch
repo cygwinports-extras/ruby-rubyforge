@@ -1,0 +1,32 @@
+json is already part of the Ruby standard library, so there is no advantage to 
+using json_pure (which is the same as json but without json/ext).
+
+--- origsrc/rubyforge-2.0.4/Rakefile	2013-06-14 18:35:55.182327000 -0500
++++ src/rubyforge-2.0.4/Rakefile	2013-06-14 18:36:25.040034800 -0500
+@@ -16,7 +16,7 @@ Hoe.spec "rubyforge" do
+   developer 'Tom Copeland', 'tom@infoether.com'
+ 
+   multiruby_skip << "rubinius"
+-  extra_deps << ["json_pure",">= 1.1.7"]
++  extra_deps << ["json",">= 1.1.7"]
+   self.rubyforge_name = "codeforpeople"
+   self.need_tar       = false
+ end
+--- origsrc/rubyforge-2.0.4/rubyforge.gemspec	2013-06-14 18:35:56.446399300 -0500
++++ src/rubyforge-2.0.4/rubyforge.gemspec	2013-06-14 18:36:39.059836700 -0500
+@@ -24,12 +24,12 @@ Gem::Specification.new do |s|
+     s.specification_version = 3
+ 
+     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+-      s.add_runtime_dependency(%q<json_pure>, [">= 1.1.7"])
++      s.add_runtime_dependency(%q<json>, [">= 1.1.7"])
+     else
+-      s.add_dependency(%q<json_pure>, [">= 1.1.7"])
++      s.add_dependency(%q<json>, [">= 1.1.7"])
+     end
+   else
+-    s.add_dependency(%q<json_pure>, [">= 1.1.7"])
++    s.add_dependency(%q<json>, [">= 1.1.7"])
+   end
+ end
+ 

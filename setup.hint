@@ -1,5 +1,0 @@
-category: Devel Ruby
-requires: ruby ruby-json
-sdesc: "Ruby module for RubyForge operations"
-ldesc: "Ruby module and script which automates a limited set of 
-RubyForge operations."

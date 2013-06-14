@@ -1,4 +1,0 @@
-inherit rubygem
-
-DESCRIPTION="Ruby module and script which automates a limited set of
-RubyForge operations."

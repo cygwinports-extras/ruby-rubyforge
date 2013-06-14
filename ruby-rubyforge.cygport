@@ -1,0 +1,11 @@
+inherit rubygem
+
+NAME="ruby-rubyforge"
+VERSION=2.0.4
+RELEASE=3
+CATEGORY="Ruby"
+SUMMARY="Ruby module for RubyForge operations"
+DESCRIPTION="Ruby module and script which automates a limited set of
+RubyForge operations."
+
+PATCH_URI="2.0.4-json-ext.patch"
